@@ -1,0 +1,312 @@
+:root {
+  --primary-color: #333;
+  --secondary-color: #eee;
+  --point-color: #689689;
+  --point-lighter-2: #ddf3ed;
+  --point-darken-1: #496960;
+  --beta-color: #ed6a5a;
+  --beta-darken-1: #c75a4c;
+  --border-color: #ddd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1024px;
+  margin: auto;
+}
+
+/* utils */
+.d-flex {
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+.text-center {
+  text-align: center;
+}
+.border-shadow {
+  box-shadow: 1px 3px 10px var(--primary-color);
+}
+
+/*
+================================
+Navbar template
+================================
+*/
+
+#header {
+  width: 100vw;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  position: fixed;
+  z-index: 10;
+}
+.nav {
+  width: 100%;
+}
+
+.nav .container {
+  padding: 18px 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 26px;
+}
+.nav-items {
+  gap: 20px;
+  font-size: 20px;
+}
+.nav-item:hover {
+  color: #fff;
+}
+
+/*
+================================
+All Books main template
+================================
+*/
+
+#site-main .container {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 30px;
+  position: relative;
+  top: 66px;
+}
+
+#site-main form {
+  margin: 10px auto;
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+}
+thead th,
+tbody td {
+  padding: 10px;
+  height: 20px;
+  vertical-align: top;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+}
+td > i {
+  /* font-size: 18px; */
+  color: #f8ce0b;
+}
+
+tbody tr {
+  transition: all 0.5s ease;
+}
+tbody tr:hover {
+  background-color: var(--point-lighter-2);
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+}
+.author {
+  font-size: 14px;
+  color: #aaa;
+  font-weight: 300;
+}
+.date {
+  font-size: 13px;
+}
+@media screen and (max-width: 800px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+  thead tr {
+    position: absolute;
+    top: -100%;
+    left: -100%;
+  }
+  tr {
+    border: 1px solid var(--border-color);
+    padding-bottom: 5px;
+    margin-bottom: 8px;
+  }
+  tbody td {
+    border-top: none;
+    padding: 5px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nav .container {
+    padding: 16px;
+  }
+  .logo {
+    font-size: 20px;
+  }
+  .nav-items {
+    gap: 10px;
+    font-size: 16px;
+  }
+  #site-main .container {
+    gap: 0px;
+    padding: 30px;
+  }
+}
+
+/*
+================================
+Single Book Info template
+================================
+*/
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.show-btn {
+  font-size: 20px;
+  transition: all 0.5s ease;
+}
+/* .action-form {
+  padding: 0;
+} */
+.update {
+  color: var(--point-color);
+}
+.update:hover {
+  color: var(--point-darken-1);
+}
+.delete {
+  border: none;
+  background-color: transparent;
+  color: var(--beta-color);
+}
+.delete:hover {
+  color: var(--beta-darken-1);
+}
+
+.singlebook-info {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px;
+  border: 1px solid var(--point-color);
+}
+.singlebook-info p {
+  font-size: 14px;
+  color: #aaa;
+}
+.book-details {
+  font-size: 14px;
+  color: var(--primary-color);
+  line-height: 1.6;
+}
+/*
+================================
+Add Book & Update Book template
+================================
+*/
+.new-book {
+  min-width: 786px;
+  margin: auto;
+}
+.form-group {
+  margin: 24px 0;
+}
+.form-group label {
+  color: var(--point-darken-1);
+  font-size: 15px;
+  font-weight: 700;
+}
+.form-group input[type="text"],
+.form-group textarea {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  margin: 8px 0;
+  font-size: 14px;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+}
+.form-group input::placeholder {
+  color: #bbb;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+  outline: none;
+}
+
+.form-group textarea {
+  height: 100px;
+  /* overflow-y: scroll; */
+}
+
+.radio-form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.stars-radio {
+  margin-top: 16px;
+}
+.stars-radio input {
+  display: none;
+}
+.stars-radio label {
+  font-size: 18px;
+  color: #ccc;
+  float: right;
+  transition: all 0.5s ease;
+}
+/* .radio-inline input:not(:ckecked) ~ label:hover,
+.radio-inline input:not(:ckecked) ~ label:hover ~ label {
+  color: #f8ce0b;
+} */
+
+/* .radio-inline input:ckecked ~ label {
+  color: #f8ce0b;
+} */
+
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label {
+  color: #f8ce0b;
+}
+input:checked ~ label {
+  color: #f8ce0b;
+}
+
+.add-btn {
+  padding: 12px 18px;
+  color: var(--secondary-color);
+  background-color: var(--point-color);
+  border: none;
+  border-radius: 10px;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+}
+.add-btn:hover {
+  background-color: var(--point-darken-1);
+}

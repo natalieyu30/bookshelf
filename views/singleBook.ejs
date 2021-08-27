@@ -1,0 +1,42 @@
+<!-- include header -->
+<%- include('include/_header.ejs') %>
+
+<!-- main -->
+<main id="site-main">
+  <div class="container d-flex">
+    <div class="form-title">
+      <h2>Book Story</h2>
+    </div>
+    <div class="actions">
+      <a href="/update-book/<%= book[0]._id %>" class="show-btn update">
+        <span><i class="fas fa-pencil-alt"></i></span>
+      </a>
+      <form
+        action="/api/books/<%= book[0]._id %>?_method=DELETE"
+        method="POST"
+        class="action-form"
+      >
+        <button
+          type="submit"
+          class="show-btn delete"
+          onclick="return confirm('Are you sure you want to delete this item?');"
+        >
+          <i class="fas fa-trash"></i>
+        </button>
+      </form>
+    </div>
+
+    <!-- book content -->
+    <div class="singlebook-info">
+      <p>Title : <span class="book-details"><%= book[0].title %></span></p>
+      <p>Author : <span class="book-details"><%= book[0].author %></span></p>
+      <p>Date : <span class="book-details"><%= book[0].date %></span></p>
+      <p>Rating : <span class="book-details"><%= book[0].rating %></span></p>
+      <p>Description : <span class="book-details"><%= book[0].desc %></span></p>
+    </div>
+  </div>
+</main>
+<!-- /main -->
+
+<!-- include footer -->
+<%- include('include/_footer.ejs') %>

@@ -1,0 +1,27 @@
+<% for (let i=books.length - 1; i>=0; i--) { %>
+  <tr>
+    <td><%= i+1 %></td>
+    <td class="title">
+      <a href="/book-details/<%= books[i]._id %>">
+        <%= books[i].title %>
+      </a>
+      </td>
+    <td class="author"><%= books[i].author %></td>
+    <td class="date"><%= books[i].date %></td>
+    <td>
+      <% for (let n=0; n<books[i].rating; n++) {%>
+        <i class="fas fa-star"></i>
+      <% } %>
+    </td>
+    <!-- <td class="d-flex show-flex">
+      <a href="/update-book/<%= books[i]._id %>" class="show-btn update">
+        <span><i class="fas fa-pencil-alt"></i></span>
+      </a>
+      <form 
+        action="/api/books/<%= books[i]._id %>?_method=DELETE"
+        method="POST" class="action-form">
+        <button type="submit" class="show-btn delete"><i class="fas fa-trash"></i></button>
+      </form>
+    </td> -->
+  </tr>
+  <% } %>
