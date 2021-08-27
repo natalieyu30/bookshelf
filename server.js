@@ -38,7 +38,7 @@ app.use("/api/books", route);
 app.get("/", (req, res) => {
   // make a get request to /api/books
   axios
-    .get("http://localhost:3000/api/books")
+    .get(`http://localhost:${PORT}/api/books`)
     .then((result) => {
       res.render("index", { books: result.data });
     })
@@ -50,7 +50,7 @@ app.get("/", (req, res) => {
 app.get("/add-book", (req, res) => res.render("addBook"));
 app.get("/book-details/:id", (req, res) => {
   axios
-    .get(`http://localhost:3000/api/books/${req.params.id}`)
+    .get(`http://localhost:${PORT}/api/books/${req.params.id}`)
     .then((result) => {
       res.render("singleBook.ejs", { book: result.data });
     })
@@ -61,7 +61,7 @@ app.get("/book-details/:id", (req, res) => {
 
 app.get("/update-book/:id", (req, res) => {
   axios
-    .get(`http://localhost:3000/api/books/${req.params.id}`)
+    .get(`http://localhost:${PORT}/api/books/${req.params.id}`)
     .then((result) => {
       // console.log(result.data);
       res.render("updateBook.ejs", { book: result.data });
